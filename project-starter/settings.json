@@ -1,0 +1,60 @@
+{
+  "_comment": "Copy this file to .claude/settings.json in your project root",
+  "_comment2": "Remove these _comment lines after copying",
+  "_comment3": "Delete any sections you don't need",
+
+  "permissions": {
+    "allow": [
+      "Read",
+      "Glob",
+      "Grep",
+
+      "Bash(git status)",
+      "Bash(git diff *)",
+      "Bash(git log *)",
+      "Bash(git branch)",
+      "Bash(git stash *)",
+      "Bash(git fetch *)",
+
+      "Bash(ls *)"
+    ],
+
+    "deny": [
+      "Bash(git push --force *)",
+      "Bash(git reset --hard *)",
+      "Bash(git checkout .)",
+      "Bash(git restore .)",
+      "Bash(git clean *)"
+    ]
+  },
+
+  "hooks": {
+    "PostToolUse": [
+      {
+        "_comment": "Auto-format files after Claude edits them",
+        "_comment2": "UNCOMMENT and set your formatter command below",
+        "matcher": "Edit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "echo 'TODO: replace with your formatter, e.g.: npx prettier --write $CLAUDE_FILE_PATH'"
+          }
+        ]
+      }
+    ],
+
+    "PreToolUse": [
+      {
+        "_comment": "Run linter before git commit",
+        "_comment2": "UNCOMMENT and set your lint command below",
+        "matcher": "Bash(git commit *)",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "echo 'TODO: replace with your linter, e.g.: npm run lint'"
+          }
+        ]
+      }
+    ]
+  }
+}

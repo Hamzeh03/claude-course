@@ -43,7 +43,17 @@ Start with this README for an overview, then dive into the detailed guides:
 | Resource | Description |
 |----------|-------------|
 | **[Exercises](examples/README.md)** | 12 hands-on exercises from beginner to advanced |
-| **[CLAUDE.md Template](templates/CLAUDE.md)** | Starter template — copy into your own projects |
+| **[CLAUDE.md Template](templates/CLAUDE.md)** | Basic starter template for any project |
+| **[Project Starter Kit](project-starter/)** | **Ready-to-use config files** — copy into any project and fill in the blanks |
+
+#### What's in the Project Starter Kit
+
+| File | What It Does |
+|------|-------------|
+| [`CLAUDE.md`](project-starter/CLAUDE.md) | Project instructions Claude reads every session (tech stack, conventions, rules) |
+| [`IDENTITY.md`](project-starter/IDENTITY.md) | Tell Claude who you are, your role, experience, coding style, preferences |
+| [`GIT-RULES.md`](project-starter/GIT-RULES.md) | How Claude handles git — commit style, branch rules, PR format, safety rules |
+| [`settings.json`](project-starter/settings.json) | Permissions and hooks — copy to `.claude/settings.json` |
 
 ---
 
@@ -283,8 +293,14 @@ claude-course/
 │   └── GIT-AND-GITHUB.md             # Git/GitHub setup, commits, PRs, CI/CD
 ├── examples/
 │   └── README.md                      # Hands-on exercises from beginner to advanced
-└── templates/
-    └── CLAUDE.md                      # Starter CLAUDE.md template for your projects
+├── templates/
+│   └── CLAUDE.md                      # Basic starter CLAUDE.md template
+└── project-starter/                   # COPY THESE INTO YOUR PROJECTS
+    ├── README.md                      # Setup instructions
+    ├── CLAUDE.md                      # Project instructions (fill in the blanks)
+    ├── IDENTITY.md                    # Your role, style, preferences
+    ├── GIT-RULES.md                   # Commit, branch, PR, and safety rules
+    └── settings.json                  # Permissions and hooks → .claude/settings.json
 ```
 
 ---
