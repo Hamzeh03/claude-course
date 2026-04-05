@@ -90,7 +90,10 @@ Fine-grained control over specific tools:
     ],
     "deny": [
       "Bash(rm -rf *)",
-      "Bash(git push --force *)"
+      "Bash(git push --force *)",
+      "Bash(git push -f *)",
+      "Bash(git reset --hard *)",
+      "Bash(git branch -D *)"
     ]
   }
 }

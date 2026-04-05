@@ -545,10 +545,11 @@ Cherry-pick commit abc123 into the release branch
 | Action | Why It's Risky |
 |--------|---------------|
 | `git push` | Sends code to remote — visible to others |
-| `git push --force` | **Overwrites remote history** — can destroy work |
+| `git push --force` / `git push -f` | **Overwrites remote history** — can destroy work |
 | `git reset --hard` | Discards all local changes permanently |
-| `git branch -D` | Deletes a branch permanently |
-| `git checkout .` | Discards all uncommitted changes |
+| `git branch -D` / `git branch -d -f` | Deletes a branch permanently (force delete) |
+| `git checkout .` / `git restore .` | Discards all uncommitted changes |
+| `git clean -f` | Deletes untracked files permanently |
 | Creating/closing PRs | Visible to collaborators |
 | Merging PRs | Changes the main codebase |
 
@@ -582,8 +583,12 @@ In `/permissions` or `.claude/settings.json`:
     ],
     "deny": [
       "Bash(git push --force *)",
+      "Bash(git push -f *)",
       "Bash(git reset --hard *)",
+      "Bash(git branch -D *)",
+      "Bash(git branch -d -f *)",
       "Bash(git checkout .)",
+      "Bash(git restore .)",
       "Bash(git clean *)"
     ]
   }
