@@ -1,0 +1,30 @@
+# Claude Code
+.claude/settings.local.json
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Editor files
+*.swp
+*.swo
+*~
+.vscode/
+.idea/
+
+# Node (if exercises use it)
+node_modules/
+package-lock.json
+
+# Python (if exercises use it)
+__pycache__/
+*.pyc
+.venv/
+venv/
+*.egg-info/
+dist/
+build/
+
+# Environment
+.env
+.env.local

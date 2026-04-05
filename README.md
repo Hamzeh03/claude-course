@@ -1,23 +1,48 @@
 # Claude Course
 
-A learning project for mastering Claude Code — Anthropic's CLI tool, its features, skills, context system, and commands.
+**The complete learning resource for Claude Code** — Anthropic's agentic coding tool.
+
+Whether you're just getting started or looking to master advanced features, this repo covers everything: commands, skills, context management, tools, memory, hooks, prompting techniques, real-world workflows, and hands-on exercises.
 
 ---
 
-## Table of Contents
+## Who Is This For?
 
-- [What is Claude Code](#what-is-claude-code)
-- [Installation](#installation)
-- [Core Commands](#core-commands)
-- [Slash Commands](#slash-commands)
-- [Skills](#skills)
-- [Context System](#context-system)
-- [Tools Available to Claude](#tools-available-to-claude)
-- [Memory System](#memory-system)
-- [Hooks](#hooks)
-- [MCP Servers](#mcp-servers)
-- [Models](#models)
-- [Tips and Best Practices](#tips-and-best-practices)
+- **Beginners** who just installed Claude Code and want to learn the basics
+- **Intermediate users** who want to unlock productivity with skills, memory, and automation
+- **Advanced users** who want to master sub-agents, hooks, MCP servers, and CI/CD integration
+- **Teams** looking for a shared reference to onboard members onto Claude Code
+
+---
+
+## How to Use This Repo
+
+Start with this README for an overview, then dive into the detailed guides:
+
+| Start Here | What You'll Learn |
+|------------|-------------------|
+| **[Commands Reference](COMMANDS.md)** | Every slash command, keyboard shortcut, CLI flag, and vim binding |
+| **[Cheat Sheet](CHEATSHEET.md)** | One-page quick reference — print it or pin it |
+
+### Deep-Dive Guides
+
+| Guide | What It Covers |
+|-------|---------------|
+| **[Skills](guides/SKILLS.md)** | What skills are, every built-in skill explained with examples |
+| **[Context System](guides/CONTEXT.md)** | How context works — 5 layers, management, best practices |
+| **[Tools](guides/TOOLS.md)** | Every tool (Read, Edit, Bash, Agent, etc.), permissions, MCP |
+| **[Memory System](guides/MEMORY-SYSTEM.md)** | 4 memory types, file format, lifecycle, what to save vs. skip |
+| **[Hooks & Automation](guides/HOOKS-AND-AUTOMATION.md)** | Hooks, MCP servers, plugins, automation patterns |
+| **[Prompting Tips](guides/PROMPTING-TIPS.md)** | How to write effective prompts — patterns, templates, anti-patterns |
+| **[Workflows](guides/WORKFLOWS.md)** | 12 step-by-step workflows (debugging, features, reviews, DevOps) |
+| **[Settings & Config](guides/SETTINGS-CONFIG.md)** | Settings files, permissions, hooks config, environment variables |
+
+### Practice & Templates
+
+| Resource | Description |
+|----------|-------------|
+| **[Exercises](examples/README.md)** | 12 hands-on exercises from beginner to advanced |
+| **[CLAUDE.md Template](templates/CLAUDE.md)** | Starter template — copy into your own projects |
 
 ---
 
@@ -37,6 +62,18 @@ npm install -g @anthropic-ai/claude-code
 claude
 ```
 
+**Prerequisites:**
+- Node.js 18+
+- An Anthropic account (Pro, Max, or Team plan, or API key)
+
+**First steps after install:**
+```bash
+claude              # Start a session
+/init               # Create a CLAUDE.md for your project
+/terminal-setup     # Configure keyboard shortcuts
+/doctor             # Verify everything works
+```
+
 ---
 
 ## Core Commands
@@ -48,26 +85,29 @@ These are built-in CLI commands you can use inside a Claude Code session:
 | `/help` | Get help with using Claude Code |
 | `/clear` | Clear conversation context |
 | `/compact` | Compress conversation to save context space |
+| `/context` | Visualize context usage |
+| `/diff` | View changes Claude has made |
 | `/fast` | Toggle fast mode (same model, faster output) |
 | `/cost` | Show token usage and cost for the session |
-| `/quit` | Exit the session |
+| `/model` | Switch between models (Opus, Sonnet, Haiku) |
+| `/plan` | Enter plan mode (read-only analysis) |
 | `/init` | Initialize a CLAUDE.md file in the project |
 | `/memory` | Edit Claude's memory files |
 | `/permissions` | View and manage tool permissions |
-| `/status` | Show session status |
-| `/terminal-setup` | Set up terminal integration |
+| `/doctor` | Diagnose installation issues |
+| `/quit` | Exit the session |
 | `! <command>` | Run a shell command directly from the prompt |
+
+> **Full reference:** See [COMMANDS.md](COMMANDS.md) for every command, shortcut, and flag.
 
 ---
 
-## Slash Commands
+## Slash Commands & Skills
 
 Slash commands invoke **skills** — specialized routines Claude Code can execute:
 
 | Slash Command | Description |
 |---------------|-------------|
-| `/commit` | Create a well-formatted git commit |
-| `/review-pr` | Review a pull request |
 | `/simplify` | Review changed code for reuse, quality, and efficiency |
 | `/loop <interval> <command>` | Run a command on a recurring interval (e.g., `/loop 5m /foo`) |
 | `/schedule` | Create, update, list, or run scheduled remote agents (cron-based) |
@@ -75,20 +115,7 @@ Slash commands invoke **skills** — specialized routines Claude Code can execut
 | `/keybindings-help` | Customize keyboard shortcuts and keybindings |
 | `/claude-api` | Get help building apps with the Claude API or Anthropic SDK |
 
----
-
-## Skills
-
-Skills are specialized capabilities that Claude Code can invoke. They provide domain-specific knowledge and workflows.
-
-### Built-in Skills
-
-- **update-config** — Configure the Claude Code harness via `settings.json`. Use for automated behaviors ("from now on when X", "each time X").
-- **keybindings-help** — Customize keyboard shortcuts, rebind keys, add chord bindings.
-- **simplify** — Reviews changed code for reuse, quality, and efficiency, then fixes issues.
-- **loop** — Run a prompt or slash command on a recurring interval.
-- **schedule** — Create and manage scheduled remote agents (cron-based triggers).
-- **claude-api** — Help building apps with the Claude API, Anthropic SDK, or Agent SDK.
+> **Deep dive:** See [guides/SKILLS.md](guides/SKILLS.md) for detailed explanation of each skill.
 
 ---
 
@@ -113,14 +140,12 @@ Claude Code uses several layers of context to understand your project:
 
 ### Conversation Context
 
-- Claude maintains context throughout a session.
-- When context approaches limits, older messages are automatically compressed.
-- Use `/compact` to manually compress context.
-- Use `/clear` to reset context entirely.
+- Claude maintains context throughout a session
+- When context approaches limits, older messages are automatically compressed
+- Use `/compact` to manually compress context
+- Use `/clear` to reset context entirely
 
-### Working Directory
-
-Claude is always aware of the current working directory and uses it as the root for file operations, searches, and git commands.
+> **Deep dive:** See [guides/CONTEXT.md](guides/CONTEXT.md) for context layers, flow diagram, and management tips.
 
 ---
 
@@ -130,7 +155,7 @@ Claude Code has access to a set of built-in tools:
 
 | Tool | Purpose |
 |------|---------|
-| **Read** | Read files from the filesystem |
+| **Read** | Read files from the filesystem (code, images, PDFs, notebooks) |
 | **Write** | Create new files |
 | **Edit** | Make targeted edits to existing files |
 | **Glob** | Find files by name/pattern (e.g., `**/*.ts`) |
@@ -151,6 +176,8 @@ The Agent tool can launch specialized sub-agents:
 - **Plan** — Software architect for designing implementation plans
 - **claude-code-guide** — Answer questions about Claude Code features, API, SDK
 
+> **Deep dive:** See [guides/TOOLS.md](guides/TOOLS.md) for how each tool works, permission system, and tool call flow.
+
 ---
 
 ## Memory System
@@ -166,24 +193,28 @@ Claude Code has a persistent, file-based memory system that carries knowledge be
 | **project** | Ongoing work context, goals, decisions, deadlines |
 | **reference** | Pointers to external resources (Linear, Slack, Grafana, etc.) |
 
-### How Memory Works
+### Quick Usage
 
-- Memories are stored as Markdown files with frontmatter
-- An index file (`MEMORY.md`) tracks all memories
-- Claude reads relevant memories at the start of conversations
-- Ask Claude to "remember X" to save something, or "forget X" to remove it
+```
+Remember that I prefer TypeScript over JavaScript     # saves user memory
+Remember to always run tests before committing         # saves feedback memory
+Forget my language preference                          # removes a memory
+/memory                                                # view and edit memories
+```
+
+> **Deep dive:** See [guides/MEMORY-SYSTEM.md](guides/MEMORY-SYSTEM.md) for file format, lifecycle, and best practices.
 
 ---
 
-## Hooks
+## Hooks & Automation
 
 Hooks are shell commands that execute in response to Claude Code events (like tool calls). Configure them in `settings.json` to automate behaviors:
 
-- **Pre-tool hooks** — Run before a tool executes
-- **Post-tool hooks** — Run after a tool executes
+- **Pre-tool hooks** — Run before a tool executes (validate, block, log)
+- **Post-tool hooks** — Run after a tool executes (format, test, notify)
 - **Prompt-submit hooks** — Run when you submit a prompt
 
-Use `/update-config` to set up hooks.
+Use `/update-config` to set up hooks, or see [guides/HOOKS-AND-AUTOMATION.md](guides/HOOKS-AND-AUTOMATION.md) for patterns and JSON examples.
 
 ---
 
@@ -196,35 +227,39 @@ MCP (Model Context Protocol) servers extend Claude Code with additional tools an
 - APIs
 - Custom tools
 
+> **Deep dive:** See [guides/HOOKS-AND-AUTOMATION.md](guides/HOOKS-AND-AUTOMATION.md) for MCP configuration and management.
+
 ---
 
 ## Models
 
 Claude Code is powered by the latest Claude model family:
 
-| Model | ID |
-|-------|----|
-| **Claude Opus 4.6** | `claude-opus-4-6` |
-| **Claude Sonnet 4.6** | `claude-sonnet-4-6` |
-| **Claude Haiku 4.5** | `claude-haiku-4-5-20251001` |
+| Model | ID | Best For |
+|-------|----|----------|
+| **Claude Opus 4.6** | `claude-opus-4-6` | Complex reasoning, large codebases |
+| **Claude Sonnet 4.6** | `claude-sonnet-4-6` | Balanced speed and quality |
+| **Claude Haiku 4.5** | `claude-haiku-4-5-20251001` | Fast, lightweight tasks |
 
-- Fast mode (`/fast`) uses the same model with faster output — it does NOT switch models.
-- When building AI apps, default to the latest and most capable models.
+- Fast mode (`/fast`) uses the same model with faster output — it does NOT switch models
+- Switch models mid-session with `/model sonnet` or `Alt+P`
 
 ---
 
 ## Tips and Best Practices
 
-1. **Be specific** — Clear, detailed prompts produce better results than vague ones.
-2. **Use CLAUDE.md** — Put project conventions there so Claude follows them every session.
-3. **Use memory** — Tell Claude to remember your preferences so you don't repeat yourself.
-4. **Use sub-agents** — For complex tasks, Claude can launch parallel agents to work faster.
-5. **Read before editing** — Claude should always read a file before modifying it.
-6. **Use `/compact`** — When conversations get long, compress to save context.
-7. **Use `! command`** — Run shell commands directly from the prompt when needed.
-8. **Check permissions** — Use `/permissions` to control what tools Claude can auto-execute.
-9. **Use plans for big tasks** — Ask Claude to plan before implementing complex features.
+1. **Be specific** — Clear, detailed prompts produce better results than vague ones
+2. **Use CLAUDE.md** — Put project conventions there so Claude follows them every session
+3. **Use memory** — Tell Claude to remember your preferences so you don't repeat yourself
+4. **Use sub-agents** — For complex tasks, Claude can launch parallel agents to work faster
+5. **Read before editing** — Claude should always read a file before modifying it
+6. **Use `/compact`** — When conversations get long, compress to save context
+7. **Use `! command`** — Run shell commands directly from the prompt when needed
+8. **Check permissions** — Use `/permissions` to control what tools Claude can auto-execute
+9. **Use plans for big tasks** — Ask Claude to plan before implementing complex features
 10. **Report issues** — File bugs at https://github.com/anthropics/claude-code/issues
+
+> **More tips:** See [guides/PROMPTING-TIPS.md](guides/PROMPTING-TIPS.md) for prompt patterns, templates, and anti-patterns.
 
 ---
 
@@ -252,12 +287,39 @@ claude-course/
 
 ---
 
+## Suggested Learning Path
+
+| Step | What to Do | Time |
+|------|-----------|------|
+| 1 | Read this README for the overview | 10 min |
+| 2 | Skim the [Cheat Sheet](CHEATSHEET.md) | 5 min |
+| 3 | Try [Exercises 1-3](examples/README.md) (Beginner) | 15 min |
+| 4 | Read [Context System](guides/CONTEXT.md) | 10 min |
+| 5 | Read [Prompting Tips](guides/PROMPTING-TIPS.md) | 10 min |
+| 6 | Try [Exercises 4-7](examples/README.md) (Intermediate) | 20 min |
+| 7 | Read [Tools](guides/TOOLS.md) and [Memory](guides/MEMORY-SYSTEM.md) | 15 min |
+| 8 | Read [Workflows](guides/WORKFLOWS.md) | 10 min |
+| 9 | Try [Exercises 8-12](examples/README.md) (Advanced) | 30 min |
+| 10 | Set up [hooks and config](guides/SETTINGS-CONFIG.md) for your projects | 15 min |
+
+---
+
 ## Resources
 
 - [Claude Code Documentation](https://docs.anthropic.com/en/docs/claude-code)
 - [Claude Code GitHub](https://github.com/anthropics/claude-code)
 - [Anthropic API Docs](https://docs.anthropic.com)
+- [Report Issues](https://github.com/anthropics/claude-code/issues)
 
 ---
 
-*This project is for learning purposes.*
+## Contributing
+
+Found something missing or incorrect? Contributions are welcome:
+1. Fork this repo
+2. Create a branch for your changes
+3. Submit a pull request
+
+---
+
+*This project is for learning purposes. Not affiliated with Anthropic.*

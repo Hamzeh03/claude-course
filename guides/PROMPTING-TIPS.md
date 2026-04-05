@@ -1,5 +1,7 @@
 # Claude Code — Prompting Tips
 
+> [Back to README](../README.md) | [Workflows](WORKFLOWS.md) | [Exercises](../examples/README.md) | [Cheat Sheet](../CHEATSHEET.md)
+
 How to write effective prompts that get the best results from Claude Code.
 
 ---

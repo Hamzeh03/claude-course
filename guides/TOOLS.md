@@ -1,5 +1,7 @@
 # Claude Code — Tools Reference
 
+> [Back to README](../README.md) | [Commands](../COMMANDS.md) | [Context](CONTEXT.md) | [Settings](SETTINGS-CONFIG.md)
+
 Tools are the actions Claude Code can take. Every file read, edit, search, and command is a tool call.
 
 ---

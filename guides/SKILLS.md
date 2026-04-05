@@ -1,5 +1,7 @@
 # Claude Code — Skills Guide
 
+> [Back to README](../README.md) | [Commands](../COMMANDS.md) | [Context](CONTEXT.md) | [Tools](TOOLS.md)
+
 Skills are specialized routines that extend Claude Code's capabilities. They are invoked via slash commands and provide domain-specific workflows.
 
 ---
