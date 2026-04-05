@@ -2,6 +2,8 @@
 
 A one-page quick reference. Print it, pin it, bookmark it.
 
+> [Back to README](README.md) | [Full Commands Reference](COMMANDS.md) | [Exercises](examples/README.md)
+
 ---
 
 ## Essential Commands

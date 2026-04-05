@@ -1,5 +1,7 @@
 # Claude Code — Context System
 
+> [Back to README](../README.md) | [Memory System](MEMORY-SYSTEM.md) | [Tools](TOOLS.md) | [Settings](SETTINGS-CONFIG.md)
+
 Understanding how Claude Code gathers, manages, and uses context is key to getting the best results.
 
 ---

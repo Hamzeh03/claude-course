@@ -1,5 +1,7 @@
 # Examples & Exercises
 
+> [Back to README](../README.md) | [Prompting Tips](../guides/PROMPTING-TIPS.md) | [Workflows](../guides/WORKFLOWS.md) | [Cheat Sheet](../CHEATSHEET.md)
+
 Practice using Claude Code with these real-world scenarios. Each example includes the prompt to use and what to expect.
 
 ---

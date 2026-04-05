@@ -1,5 +1,7 @@
 # Claude Code — Hooks & Automation
 
+> [Back to README](../README.md) | [Settings](SETTINGS-CONFIG.md) | [Skills](SKILLS.md) | [Workflows](WORKFLOWS.md)
+
 Hooks let you run shell commands automatically in response to Claude Code events.
 
 ---

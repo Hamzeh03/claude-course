@@ -1,3 +1,7 @@
+<!-- Copy this template into your own project's root directory as CLAUDE.md -->
+<!-- Then fill in the brackets with your project's details -->
+<!-- See the full guide: https://github.com/Hamzeh03/claude-course/blob/main/guides/CONTEXT.md -->
+
 # Project: [Your Project Name]
 
 ## Overview

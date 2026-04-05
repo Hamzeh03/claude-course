@@ -2,6 +2,8 @@
 
 A comprehensive guide to every command, shortcut, and flag available in Claude Code.
 
+> [Back to README](README.md) | [Cheat Sheet](CHEATSHEET.md) | [Skills](guides/SKILLS.md) | [Workflows](guides/WORKFLOWS.md)
+
 ---
 
 ## Table of Contents

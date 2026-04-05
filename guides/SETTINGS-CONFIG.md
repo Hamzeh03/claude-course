@@ -1,5 +1,7 @@
 # Claude Code — Settings & Configuration
 
+> [Back to README](../README.md) | [Hooks & Automation](HOOKS-AND-AUTOMATION.md) | [Commands](../COMMANDS.md) | [Tools](TOOLS.md)
+
 Everything about configuring Claude Code to work the way you want.
 
 ---

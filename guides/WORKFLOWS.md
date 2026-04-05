@@ -1,5 +1,7 @@
 # Claude Code — Common Workflows
 
+> [Back to README](../README.md) | [Prompting Tips](PROMPTING-TIPS.md) | [Tools](TOOLS.md) | [Exercises](../examples/README.md)
+
 Step-by-step guides for the most common tasks you'll do with Claude Code.
 
 ---

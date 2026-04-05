@@ -1,5 +1,7 @@
 # Claude Code — Memory System
 
+> [Back to README](../README.md) | [Context System](CONTEXT.md) | [Settings](SETTINGS-CONFIG.md) | [Prompting Tips](PROMPTING-TIPS.md)
+
 Claude Code has a persistent, file-based memory that carries knowledge between conversations.
 
 ---
