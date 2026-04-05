@@ -21,7 +21,10 @@
 
     "deny": [
       "Bash(git push --force *)",
+      "Bash(git push -f *)",
       "Bash(git reset --hard *)",
+      "Bash(git branch -D *)",
+      "Bash(git branch -d -f *)",
       "Bash(git checkout .)",
       "Bash(git restore .)",
       "Bash(git clean *)"
