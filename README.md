@@ -36,6 +36,7 @@ Start with this README for an overview, then dive into the detailed guides:
 | **[Prompting Tips](guides/PROMPTING-TIPS.md)** | How to write effective prompts — patterns, templates, anti-patterns |
 | **[Workflows](guides/WORKFLOWS.md)** | 12 step-by-step workflows (debugging, features, reviews, DevOps) |
 | **[Settings & Config](guides/SETTINGS-CONFIG.md)** | Settings files, permissions, hooks config, environment variables |
+| **[Git & GitHub](guides/GIT-AND-GITHUB.md)** | Setup, commits, branches, PRs, issues, CI/CD, permissions, troubleshooting |
 
 ### Practice & Templates
 
@@ -278,7 +279,8 @@ claude-course/
 │   ├── HOOKS-AND-AUTOMATION.md       # Hooks, MCP servers, plugins, automation patterns
 │   ├── PROMPTING-TIPS.md             # How to write effective prompts
 │   ├── WORKFLOWS.md                  # Step-by-step common workflows
-│   └── SETTINGS-CONFIG.md            # Settings, permissions, hooks configuration
+│   ├── SETTINGS-CONFIG.md            # Settings, permissions, hooks configuration
+│   └── GIT-AND-GITHUB.md             # Git/GitHub setup, commits, PRs, CI/CD
 ├── examples/
 │   └── README.md                      # Hands-on exercises from beginner to advanced
 └── templates/
